@@ -15,8 +15,7 @@ namespace TeapotFactoryStandalone
         [STAThread]
         public static void OpenMainWindow()
         {
-
-            var dialog = new TeapotFactory.View.MainWindow();
+            var dialog = new MainWindow();
             theApplication = new Application();
             theApplication.Run(dialog);
 

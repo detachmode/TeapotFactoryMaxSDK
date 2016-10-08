@@ -24,10 +24,32 @@ namespace TeapotFactory.View
             this.Dispatcher.UnhandledException -= Dispatcher_UnhandledException;
         }
 
-        public void Dispatcher_UnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs args)
-        {
-            ExceptionHandling.ExceptionRoutine(args, closeAction:this.Close);
 
+        public  void Dispatcher_UnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs args)
+        {
+            args.Handled = true;
+            try
+            {
+                if (args.Exception.GetType() == typeof(WarningException))
+                {
+                    Interactions.Warningpopup(args.Exception.Message);
+                }
+                else if (args.Exception.GetType() == typeof(ErrorException))
+                {
+                    Interactions.Errorpopup(args.Exception.Message);
+                }
+                else
+                {
+                    UnkownErrorDialog errorDialog = new UnkownErrorDialog(args.Exception.ToString());
+                    if (errorDialog.ShowDialog() != true) return;
+                    this.Close();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
 
         public enum StatusKind
@@ -36,8 +58,6 @@ namespace TeapotFactory.View
             Good,
             Warning
         }
-
-
         public void ShowStatus(string msg, StatusKind kind)
         {
             switch (kind)
@@ -50,6 +70,8 @@ namespace TeapotFactory.View
                     break;
                 case StatusKind.Warning:
                     lblStatusText.Foreground = new SolidColorBrush(Colors.Yellow);
+                    break;
+                default:
                     break;
             }
             lblStatusText.Text = msg;

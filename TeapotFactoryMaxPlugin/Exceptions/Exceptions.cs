@@ -15,6 +15,7 @@ namespace TeapotFactory.Exceptions
         }
     }
 
+
     public class WarningException : Exception
     {
         public WarningException(string s) : base(s)
@@ -24,18 +25,19 @@ namespace TeapotFactory.Exceptions
     }
 
 
-    public static class ExceptionHandling
+    public class ExceptionsHandling
     {
-        public static void ExceptionRoutine(System.Windows.Threading.DispatcherUnhandledExceptionEventArgs args, Action closeAction)
+        public void Dispatcher_UnhandledException(object sender,
+            System.Windows.Threading.DispatcherUnhandledExceptionEventArgs args)
         {
             args.Handled = true;
             try
             {
-                if (args.Exception.GetType() == typeof(WarningException))
+                if (args.Exception.GetType() == typeof (WarningException))
                 {
                     Interactions.Warningpopup(args.Exception.Message);
                 }
-                else if (args.Exception.GetType() == typeof(ErrorException))
+                else if (args.Exception.GetType() == typeof (ErrorException))
                 {
                     Interactions.Errorpopup(args.Exception.Message);
                 }
@@ -43,12 +45,12 @@ namespace TeapotFactory.Exceptions
                 {
                     UnkownErrorDialog errorDialog = new UnkownErrorDialog(args.Exception.ToString());
                     if (errorDialog.ShowDialog() != true) return;
-                    closeAction();
+
                 }
             }
             catch (Exception)
             {
-                // ignored
+
             }
         }
     }

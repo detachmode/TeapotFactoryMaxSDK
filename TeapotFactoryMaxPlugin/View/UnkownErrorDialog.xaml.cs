@@ -26,6 +26,10 @@ namespace TeapotFactory.View
             txtError.Focus();
         }
 
-        public string Answer => txtError.Text;
+        public string Answer
+        {
+            get { return txtError.Text; }
+        }
+
     }
 }
