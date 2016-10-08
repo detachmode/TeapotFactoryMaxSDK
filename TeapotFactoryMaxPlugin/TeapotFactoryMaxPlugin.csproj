@@ -63,8 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntryPoint.cs" />
-    <Compile Include="MaxAPI.cs" />
-    <Compile Include="MaxScriptPortal.cs" />
+    <Compile Include="Kernel.cs" />
+    <Compile Include="MaxPortal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
