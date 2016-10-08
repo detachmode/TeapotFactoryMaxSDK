@@ -35,7 +35,6 @@
                     <MenuItem Header="_TestNullPointerExcption" Click="MenuItem_OnClick"/>
                     <MenuItem Header="_Test Warning" Click="TestWarning"/>
                     <MenuItem Header="_Test Error" Click="TestError"/>
-                   
                 </MenuItem>
             </Menu>
             <Grid Background="Gray">

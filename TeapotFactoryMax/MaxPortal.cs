@@ -2,12 +2,12 @@ using System.Windows.Interop;
 using ManagedServices;
 using TeapotFactory;
 using TeapotFactory.View;
-using TeapotFactoryMax.Provider;
 
 namespace TeapotFactoryMax
 {
     /// <summary>
-    /// this is the entrance for the max side to interact with our app
+    /// Interaction from MaxScript to C#. 
+    /// It is the entrance for the max side to interact with our app.
     /// If you want to call a method inside of our app, define a wrapper method here
     /// </summary>
     public static class MaxPortal
@@ -26,7 +26,6 @@ namespace TeapotFactoryMax
 
             Interactions.Setup(mainWindow, new MaxProvider());
             mainWindow.Show();
-
         }
 
 

@@ -6,11 +6,15 @@ using TeapotFactory.ViewModel;
 namespace TeapotFactory
 {
 
+    /// <summary>
+    /// Events from the UI (Views) will call a method inside the Interactions class.
+    /// The behaviors of the Interactions can be controlled by "Inversion of Control" - the IProvider interface decouples the UI from the MaxAPI
+    /// </summary>
     public static class Interactions
     {
         #region Config Interactions
 
-        private static IProvider provider = new DefaultProvider();
+        private static IProvider provider;
         private static MainWindow window;
 
         public static void Setup(MainWindow theWindow, IProvider aProvider)

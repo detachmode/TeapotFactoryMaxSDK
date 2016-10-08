@@ -8,5 +8,6 @@ namespace TeapotFactory.ViewModel
 {
     public class MainViewModel
     {
+        // not used
     }
 }

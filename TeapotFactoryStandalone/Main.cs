@@ -16,7 +16,7 @@ namespace TeapotFactoryStandalone
         public static void OpenMainWindow()
         {
             var mainWindow = new MainWindow();
-            Interactions.Setup(mainWindow, new TeapotFactory.DefaultProvider());
+            Interactions.Setup(mainWindow, new DefaultProvider());
             theApplication = new Application();
             theApplication.Run(mainWindow);
         }
