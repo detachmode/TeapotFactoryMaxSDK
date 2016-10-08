@@ -1,11 +1,7 @@
-using System;
-using System.Windows;
 using Autodesk.Max;
-using UiViewModels.Actions;
 
-namespace TeapotFactoryMaxPlugin
+namespace TeapotFactoryMax
 {
-
     public static class Kernel
     {
         public static IGlobal Global = GlobalInterface.Instance;

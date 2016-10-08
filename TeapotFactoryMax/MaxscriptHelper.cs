@@ -3,7 +3,7 @@ using System.Windows;
 using Autodesk.Max;
 using ManagedServices;
 
-namespace TeapotFactoryMaxPlugin
+namespace TeapotFactoryMax
 {
     public static class MaxscriptHelper
     {

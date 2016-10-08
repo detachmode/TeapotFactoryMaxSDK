@@ -7,8 +7,8 @@
     <ProjectGuid>{5E4EEE5A-B0FA-44F3-A356-5CBA2E75832E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TeapotFactoryMaxPlugin</RootNamespace>
-    <AssemblyName>TeapotFactoryMaxPlugin</AssemblyName>
+    <RootNamespace>TeapotFactoryMax</RootNamespace>
+    <AssemblyName>TeapotFactoryMax</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -62,7 +62,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PluginAPI\PluginEntryPoint.cs" />
     <Compile Include="Kernel.cs" />
     <Compile Include="MaxPortal.cs" />
     <Compile Include="MaxscriptHelper.cs" />

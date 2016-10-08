@@ -1,15 +1,10 @@
-using System;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Interop;
-using Autodesk.Max;
 using ManagedServices;
 using TeapotFactory;
-using TeapotFactory.Exceptions;
 using TeapotFactory.View;
-using TeapotFactoryMaxPlugin.Provider;
+using TeapotFactoryMax.Provider;
 
-namespace TeapotFactoryMaxPlugin
+namespace TeapotFactoryMax
 {
     /// <summary>
     /// this is the entrance for the max side to interact with our app

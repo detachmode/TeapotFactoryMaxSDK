@@ -34,10 +34,10 @@ global TeapotFactory
 		fn LoadMaxPortal =
 		(
 			local root = pathconfig.removePathLeaf  (getthisscriptfilename())
-			local dlllocation = pathConfig.appendPath root @"TeapotFactoryMaxPlugin\bin\Debug\TeapotFactoryMaxPlugin.dll"
+			local dlllocation = pathConfig.appendPath root @"TeapotFactoryMax\bin\Debug\TeapotFactoryMax.dll"
 			local assemblyBytes = (dotnetClass "System.IO.File").ReadAllBytes dlllocation
 			local myAssembly = (dotnetClass "System.Reflection.Assembly").Load assemblyBytes
-			this.maxportal = myAssembly.GetType("TeapotFactoryMaxPlugin.MaxPortal")	
+			this.maxportal = myAssembly.GetType("TeapotFactoryMax.MaxPortal")	
 		),
 		
 		
