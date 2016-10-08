@@ -29,10 +29,17 @@
         <DockPanel >
             <Menu DockPanel.Dock="Top" Canvas.ZIndex="300">
                 <MenuItem Header="_Help">
-                    <MenuItem Header="_Info" Click="MenuItem_OnClick"/>
+                    <MenuItem Header="_Info"/>
+                </MenuItem>
+                <MenuItem Header="_Debug">
+                    <MenuItem Header="_TestNullPointerExcption" Click="MenuItem_OnClick"/>
+                    <MenuItem Header="_Test Warning" Click="TestWarning"/>
+                    <MenuItem Header="_Test Error" Click="TestError"/>
+                   
                 </MenuItem>
             </Menu>
             <Grid Background="Gray">
+                <Button VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="12"  Height="40" Content="Create Teapot" Click="CreateTeapot"></Button>
             </Grid>
         </DockPanel>
         <StatusBar x:Name="theStatusBar" Background="#4C000000" Visibility="Hidden" IsHitTestVisible="False"  VerticalAlignment="Bottom" Foreground="#FFECECEC">

@@ -18,7 +18,6 @@ namespace TeapotFactoryStandalone
             var dialog = new MainWindow();
             theApplication = new Application();
             theApplication.Run(dialog);
-
         }
 
 

@@ -61,5 +61,23 @@ namespace TeapotFactory.View
         {
             throw new NullReferenceException();
         }
+
+
+        private void TestWarning(object sender, RoutedEventArgs e)
+        {
+            Interactions.Warningpopup("some warnings!");
+        }
+
+
+        private void TestError(object sender, RoutedEventArgs e)
+        {
+            Interactions.Errorpopup("Some error!");
+        }
+
+
+        private void CreateTeapot(object sender, RoutedEventArgs e)
+        {
+            Interactions.CreateTeapot();
+        }
     }
 }

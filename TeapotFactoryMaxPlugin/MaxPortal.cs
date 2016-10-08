@@ -7,14 +7,20 @@ using ManagedServices;
 using TeapotFactory;
 using TeapotFactory.Exceptions;
 using TeapotFactory.View;
+using TeapotFactoryMaxPlugin.Provider;
 
 namespace TeapotFactoryMaxPlugin
 {
+    /// <summary>
+    /// this is the entrance for the max side to interact with our app
+    /// If you want to call a method inside of our app, define a wrapper method here
+    /// </summary>
     public static class MaxPortal
     {
         private static MainWindow mainWindow;
         public static void OpenMainWindow()
         {
+            
             mainWindow = new MainWindow();         
             mainWindow.ShowInTaskbar = false;
 
@@ -23,59 +29,15 @@ namespace TeapotFactoryMaxPlugin
             
             AppSDK.ConfigureWindowForMax(mainWindow);
 
+            Interactions.Setup(mainWindow, new MaxProvider());
             mainWindow.Show();
-           
+
         }
 
-        
-        public static void OnError(string errormsg)
+
+        public static void TeapotCreatedFeedback()
         {
-            MessageBox.Show(errormsg);
+            Interactions.Successpopup("Created new Teapot :)");
         }
-
-
-        public static void Execute(string mxs)
-        {
-            try
-            {
-                MaxscriptSDK.ExecuteMaxscriptCommand(mxs);
-            }
-            catch
-            {
-                OnError("Couldn't Execute: " + mxs);
-            }
-        }
-
-        public static ITab<string> CallFunction(string fn)
-        {
-            try
-            {
-                string mxsCode = fn + "()";
-                IFPValue mxsRetVal = Kernel.Global.FPValue.Create();
-                Kernel.Global.ExecuteMAXScriptScript(mxsCode, true, mxsRetVal);
-                return mxsRetVal.STab;
-            }
-            catch
-            {
-                OnError("Couldn't Execute Function: " + fn);
-                return null;
-            }
-            
-        }
-
-
-        public static void CallMyGUIFunction(string fn, string parameter = null)
-        {
-            if (parameter == null)
-            {
-                Execute("MyGUIDotnet." + fn + "()");
-            }
-            else
-            {
-                Execute("MyGUIDotnet." + fn + " " + parameter);
-            }
-           
-        }
-
     }
 }

@@ -8,7 +8,18 @@ namespace TeapotFactory
 
     public static class Interactions
     {
-        
+        #region Config Interactions
+
+        private static IProvider provider = new DefaultProvider();
+        private static MainWindow window;
+
+        public static void Setup(MainWindow theWindow, IProvider aProvider)
+        {
+            window = theWindow;
+            provider = aProvider;
+        }
+
+        #endregion
 
         public static void Successpopup(string msg)
         {
@@ -48,21 +59,10 @@ namespace TeapotFactory
         }
 
 
-
-        #region Config Interactions
-
-        private static readonly IProvider provider;
-        private static MainWindow window;
-
-        public static void Setup(MainWindow theWindow)
+        public static void CreateTeapot()
         {
-            window = theWindow;
+            provider.CreateTeapot();
         }
 
-        #endregion
-
-       
     }
-
-
 }

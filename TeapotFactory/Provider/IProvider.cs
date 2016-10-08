@@ -2,6 +2,6 @@
 {
     public interface IProvider
     {
-
+        void CreateTeapot();
     }
 }

@@ -1,10 +1,12 @@
-using System;
+﻿using System;
+using System.IO;
+using System.Reflection;
 using System.Windows;
-using Autodesk.Max;
 using UiViewModels.Actions;
 
 namespace TeapotFactoryMaxPlugin
 {
+
     public abstract class AbstractCustomCuiActionCommandAdapter : CuiActionCommandAdapter
     {
         public override string ActionText => InternalActionText;
@@ -27,10 +29,19 @@ namespace TeapotFactoryMaxPlugin
         public abstract void CustomExecute(object parameter);
     }
 
-    public static class Kernel
+    /// <summary>
+    /// This is just needed, when you want to place your dll inside bin/assembly folder. That way the plugin can be loaded. 
+    /// But be carefull the maxscript struct possibly won't be there. So I am not sure if this is really of any use.
+    /// </summary>
+    public class PluginEntryPoint : AbstractCustomCuiActionCommandAdapter
     {
-        public static IGlobal Global = GlobalInterface.Instance;
-        public static IInterface13 Interface = Global.COREInterface13;
+        public override string CustomActionText => "TeapotFactory";
+
+
+        public override void CustomExecute(object parameter)
+        {
+            MaxPortal.OpenMainWindow();
+        }
 
     }
 }
