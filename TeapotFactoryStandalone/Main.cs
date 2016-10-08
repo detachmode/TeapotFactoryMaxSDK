@@ -18,35 +18,10 @@ namespace TeapotFactoryStandalone
 
             var dialog = new TeapotFactory.View.MainWindow();
             theApplication = new Application();
-            theApplication.DispatcherUnhandledException += AppOnDispatcherUnhandledException;
             theApplication.Run(dialog);
 
         }
 
-
-        private static void AppOnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs args)
-        {
-
-            args.Handled = true;
-            if (args.Exception.GetType() == typeof(WarningException))
-            {
-                Interactions.Warningpopup(args.Exception.Message);
-            }
-            else if (args.Exception.GetType() == typeof(ErrorException))
-            {
-                Interactions.Errorpopup(args.Exception.Message);
-            }
-            else
-            {
-                UnkownErrorDialog inputDialog = new UnkownErrorDialog(args.Exception.ToString());
-                if (inputDialog.ShowDialog() == true)
-                    theApplication.Shutdown();
-
-                //MessageBox.Show(" !!  Make Screenshot !! - For helping me fixing this bug\n\n" + args.Exception.ToString(), caption:"Unknow Error");
-               
-            }
-
-        }
 
 
         [STAThread]
